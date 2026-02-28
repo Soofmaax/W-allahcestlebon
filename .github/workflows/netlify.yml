@@ -51,14 +51,16 @@ jobs:
             echo "Secrets Netlify détectés. Déploiement activé." 
           fi
 
+      - name: Install Netlify CLI (only when deploy enabled)
+        if: env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
+        run: npm install -g netlify-cli
+
       - name: Deploy (preview)
         if: github.event_name == 'pull_request' && env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=. --message "PR #${{ github.event.pull_request.number }}"
+        continue-on-error: true
+        run: netlify deploy --dir=. --message "PR #${{ github.event.pull_request.number }}"
 
       - name: Deploy (production)
         if: github.event_name == 'push' && env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=. --prod --message "main @ ${{ github.sha }}"
+        continue-on-error: true
+        run: netlify deploy --dir=. --prod --message "main @ ${{ github.sha }}"
