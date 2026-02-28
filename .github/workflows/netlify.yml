@@ -12,6 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,20 +43,22 @@ jobs:
       - name: Lint CSS
         run: npm run lint:css
 
+      - name: Netlify secrets check
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID manquants. Le déploiement sera ignoré." 
+          else
+            echo "Secrets Netlify détectés. Déploiement activé." 
+          fi
+
       - name: Deploy (preview)
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
         uses: netlify/actions/cli@master
         with:
           args: deploy --dir=. --message "PR #${{ github.event.pull_request.number }}"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Deploy (production)
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
         uses: netlify/actions/cli@master
         with:
           args: deploy --dir=. --prod --message "main @ ${{ github.sha }}"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
