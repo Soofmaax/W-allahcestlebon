@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & RDV — [Nom de la prothésiste]</title>
+  <meta name="description" content="Contactez [Nom de la prothésiste] : WhatsApp, Instagram, téléphone et formulaire de contact." />
+  <meta name="theme-color" content="#ff9ecf" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l1.8 6.1L20 10l-6.2 1.2L12 18l-1.8-6.8L4 10l6.2-1.9L12 2z" fill="currentColor" opacity="0.95"/>
+          </svg>
+        </span>
+        <span class="brand-name">[Nom de la prothésiste]</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-link" href="index.html">Accueil</a>
+        <a class="nav-link" href="services.html">Prestations</a>
+        <a class="nav-link" href="gallery.html">Galerie</a>
+        <a class="nav-link" href="about.html">À propos</a>
+        <a class="nav-link is-active" href="contact.html">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary header-cta" href="#rdv">
+        <span>Prendre rendez-vous</span>
+        <span class="btn-spark" aria-hidden="true">✨</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero" id="rdv">
+      <div class="glitter" aria-hidden="true"></div>
+      <div class="container">
+        <p class="chip"><span class="chip-dot" aria-hidden="true">💅</span> Réservation simple & rapide</p>
+        <h1 class="page-title">Contact</h1>
+        <p class="page-subtitle">Le plus simple : WhatsApp ou Instagram. Sinon, laisse-moi un message ici ✨</p>
+      </div>
+      <div class="sparkle-field" aria-hidden="true" data-sparkle-field></div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <div class="contact-cards">
+          <a class="contact-card" href="https://wa.me/" target="_blank" rel="noreferrer">
+            <span class="contact-ico" aria-hidden="true">✨</span>
+            <div>
+              <p class="contact-title">WhatsApp</p>
+              <p class="contact-text">Envoie-moi ton inspiration + tes dispos.</p>
+            </div>
+            <span class="contact-action" aria-hidden="true">→</span>
+          </a>
+
+          <a class="contact-card" href="https://instagram.com" target="_blank" rel="noreferrer">
+            <span class="contact-ico" aria-hidden="true">⭐</span>
+            <div>
+              <p class="contact-title">Instagram</p>
+              <p class="contact-text">DM pour RDV + nouveautés + promos.</p>
+            </div>
+            <span class="contact-action" aria-hidden="true">→</span>
+          </a>
+
+          <a class="contact-card" href="tel:+33000000000">
+            <span class="contact-ico" aria-hidden="true">💗</span>
+            <div>
+              <p class="contact-title">Téléphone</p>
+              <p class="contact-text">+33 0 00 00 00 00</p>
+            </div>
+            <span class="contact-action" aria-hidden="true">→</span>
+          </a>
+
+          <div class="contact-note">
+            <p class="muted">Astuce : pour un nail art complexe, envoie une photo + la longueur souhaitée ⭐</p>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h2 class="section-title">Formulaire</h2>
+          <p class="section-subtitle">Formulaire statique (compatible Netlify). Réponse sous 24-48h ouvrées.</p>
+
+          <form class="form" name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+
+            <label class="field">
+              <span>Nom</span>
+              <input name="nom" autocomplete="name" required placeholder="Ton prénom" />
+            </label>
+
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="ton@email.com" />
+            </label>
+
+            <label class="field">
+              <span>Prestation</span>
+              <select name="prestation" required>
+                <option value="">Choisir…</option>
+                <option>Semi-permanent</option>
+                <option>Pose complète</option>
+                <option>Remplissage</option>
+                <option>Gainage</option>
+                <option>Nail art</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="5" required placeholder="Dis-moi tes envies (couleurs, longueur, inspiration)…"></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">
+              <span>Envoyer</span>
+              <span class="btn-spark" aria-hidden="true">✨</span>
+            </button>
+
+            <p class="fineprint muted">En envoyant ce message, tu acceptes d’être recontactée pour l’organisation du rendez-vous.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">[Nom de la prothésiste]</p>
+        <p class="footer-sub">Manucure • Nail art • Pink glossy energy ✨</p>
+      </div>
+
+      <div class="footer-links">
+        <a class="footer-link" href="services.html">Prestations</a>
+        <a class="footer-link" href="gallery.html">Galerie</a>
+        <a class="footer-link" href="about.html">À propos</a>
+        <a class="footer-link" href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-social">
+        <a class="social" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="social" href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a class="social" href="tel:+33000000000">+33 0 00 00 00 00</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span data-year></span> [Nom de la prothésiste]. Tous droits réservés.</p>
+      <p class="muted">Site statique — prêt pour Netlify/Vercel.</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js" defer></script>
+</body>
+</html>
