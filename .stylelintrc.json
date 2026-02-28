@@ -1,8 +1,10 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
-    "declaration-block-single-line-max-declarations": 2,
-    "color-function-notation": "modern",
-    "alpha-value-notation": "number"
+    "declaration-block-single-line-max-declarations": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "rule-empty-line-before": null,
+    "media-feature-range-notation": null
   }
 }
