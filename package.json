@@ -1,0 +1,17 @@
+{
+  "name": "nail-artist-static-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Site statique pour prothésiste ongulaire",
+  "scripts": {
+    "dev": "npx serve .",
+    "lint:html": "npx html-validate --config .htmlvalidate.json \"**/*.html\"",
+    "lint:css": "npx stylelint --config .stylelintrc.json \"assets/**/*.css\""
+  },
+  "devDependencies": {
+    "html-validate": "^8.24.0",
+    "serve": "^14.2.4",
+    "stylelint": "^16.14.1",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
