@@ -5,8 +5,8 @@
   "description": "Site statique pour prothésiste ongulaire",
   "scripts": {
     "dev": "npx serve .",
-    "lint:html": "npx html-validate \"**/*.html\"",
-    "lint:css": "npx stylelint \"assets/**/*.css\""
+    "lint:html": "npx html-validate --config .htmlvalidate.json \"**/*.html\"",
+    "lint:css": "npx stylelint --config .stylelintrc.json \"assets/**/*.css\""
   },
   "devDependencies": {
     "html-validate": "^8.24.0",
